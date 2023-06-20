@@ -3,6 +3,7 @@ package com.ing.hubs.controllers;
 import com.ing.hubs.exceptions.*;
 import com.ing.hubs.models.AccountBalanceDTO;
 import com.ing.hubs.models.AccountDTO;
+import com.ing.hubs.models.AdminAccountDTO;
 import com.ing.hubs.models.DepositRequest;
 import com.ing.hubs.repositories.TransactionRepository;
 import com.ing.hubs.services.AccountService;
@@ -54,6 +55,21 @@ public class AccountController {
         String response = "Here are your current accounts:\n";
         for (AccountBalanceDTO account : accountList) {
             response = response + ("\nBalance for account in currency " + account.getCurrency() + " is " + account.getBalance());
+
+        }
+        System.out.println(response);
+        return ResponseEntity.ok(response);
+
+    }
+
+    @GetMapping("/allAccounts")
+    public ResponseEntity<String> showAllAccounts(HttpServletRequest request) throws UserNotFoundException, AccountNotFoundException {
+        List<AdminAccountDTO> accountList;
+        accountList = accountService.getAllAccounts(request);
+        String response = "Here are all accounts accounts in DB:\n--------------------------------------------------------------\n"
+                + "ID  ||| Currency || Balance || UserId\n";
+        for (AdminAccountDTO account : accountList) {
+            response = response + ("\n" + account.getId() + " || " + account.getCurrency() + " || " + account.getBalance() + " || " + account.getUserId());
 
         }
         System.out.println(response);

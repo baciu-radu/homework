@@ -127,6 +127,26 @@ public class AccountService {
         return false;
     }
 
+    public List<AdminAccountDTO> getAllAccounts(HttpServletRequest request) throws UserNotFoundException, AccountNotFoundException {
+        String username = jwtService.extractUsername(jwtService.extractJwtFromRequest(request));
+        User user = userRepository.findByUsername(username).orElseThrow(UserNotFoundException::new);
+        List<AdminAccountDTO> accounts = new ArrayList<>();
+        List<Account> allAccounts = accountRepository.findAll();
+        if (allAccounts.isEmpty()) {
+            throw new AccountNotFoundException("No accounts in DB!");
+        }
+        for (Account account : allAccounts) {
+            AdminAccountDTO adminAccountDTO = AdminAccountDTO.builder()
+                    .id(account.getId())
+                    .balance(account.getBalance())
+                    .currency(account.getCurrency())
+                    .userId(account.getUser().getId())
+                    .build();
+            accounts.add(adminAccountDTO);
+        }
+        return accounts;
+    }
+
     public Optional<Account> findAccount(Integer id) {
         return accountRepository.findById(id);
     }
@@ -134,4 +154,6 @@ public class AccountService {
     public List<Account> getAllAccountsOfUser(Integer userId) {
         return accountRepository.findAllByUserId(userId);
     }
+
+
 }
