@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "eb1ac816-ed0c-4f78-97e6-0991c4f4f041",
+		"name": "HomeBank ENUMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21222174",
+		"_collection_link": "https://lively-spaceship-711100.postman.co/workspace/My-Workspace~d2e3e03d-41e7-486e-8d31-d23298e9e6db/collection/21222174-eb1ac816-ed0c-4f78-97e6-0991c4f4f041?action=share&creator=21222174&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"adela\",\r\n    \"password\": \"pass\",\r\n    \"firstName\": \"Adela\",\r\n    \"lastName\": \"Baciu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"adela\",\r\n    \"password\": \"pass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAccount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWR1IiwiaWF0IjoxNjg3MjAzMDQyLCJleHAiOjE2ODcyODk0NDJ9.BlHtSP_FJMpuJtfNmB55EKTgsoIC7-YCiC0Xx6Wlr3o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currency\": \"ron\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGVsYSIsImlhdCI6MTY4NzAyNDcyMCwiZXhwIjoxNjg3MTExMTIwfQ.RWQSJJmyvSi809WbJ8f-V8CbFuWErMtisPMAGbCrMNQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"currency\": \"ron\",\r\n    \"amount\": \"654\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/account/deposit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"account",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTransaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGVsYSIsImlhdCI6MTY4NzAxODgwNywiZXhwIjoxNjg3MTA1MjA3fQ.dUpqMfOF9di0Np0xLBmY_e0fPfhB59wNemYuygLvnHo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": \"654\",\r\n    \"type\": \"sendMoney\",\r\n    \"initializerAccountId\": \"352\",\r\n    \"targetAccountId\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowAccountBalance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkcmFnb3MiLCJpYXQiOjE2ODcwMDIzNDgsImV4cCI6MTY4NzA4ODc0OH0.f-xVWOKJmIFrBajVQY1nw6fnTgYwMXWhCrlRqNVLO5c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/account/252",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"account",
+						"252"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ShowAllAccountsBalance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGVsYSIsImlhdCI6MTY4NzAxNjY0OSwiZXhwIjoxNjg3MTAzMDQ5fQ.MCeI2NxStpAhZSIwGopXe8-9RPMNfRV7O34xOa1oLaM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TransactionHistoryOne",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkcmFnb3MiLCJpYXQiOjE2ODcwMDIzNDgsImV4cCI6MTY4NzA4ODc0OH0.f-xVWOKJmIFrBajVQY1nw6fnTgYwMXWhCrlRqNVLO5c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/transactions/252",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"transactions",
+						"252"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exchange",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGVsYSIsImlhdCI6MTY4NzAxODgwNywiZXhwIjoxNjg3MTA1MjA3fQ.dUpqMfOF9di0Np0xLBmY_e0fPfhB59wNemYuygLvnHo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": \"54\",\r\n    \"initializerAccountId\": \"352\",\r\n    \"targetAccountId\": \"352\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/transactions/exchange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"transactions",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RequestMoney",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZGVsYSIsImlhdCI6MTY4NzAxODgwNywiZXhwIjoxNjg3MTA1MjA3fQ.dUpqMfOF9di0Np0xLBmY_e0fPfhB59wNemYuygLvnHo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": \"43\",\r\n    \"type\": \"requestMoney\",\r\n    \"initializerAccountId\": \"352\",\r\n    \"targetAccountId\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewYourPendingRequests",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyYWR1IiwiaWF0IjoxNjg2OTMzODA4LCJleHAiOjE2ODcwMjAyMDh9.tvDbMNmWPbGEUNeYON56OF19PbnlkzAokRYCu4MJqDs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApproveRequests",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkcmFnb3MiLCJpYXQiOjE2ODY5MzU3NTksImV4cCI6MTY4NzAyMjE1OX0.6bW7a5qRWKGwfnWjvUUjYvoZDc-Dqg6kHPjgVth1dXQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/requests/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"requests",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
