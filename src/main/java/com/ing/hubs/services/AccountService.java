@@ -128,8 +128,7 @@ public class AccountService {
     }
 
     public List<AdminAccountDTO> getAllAccounts(HttpServletRequest request) throws UserNotFoundException, AccountNotFoundException {
-        String username = jwtService.extractUsername(jwtService.extractJwtFromRequest(request));
-        User user = userRepository.findByUsername(username).orElseThrow(UserNotFoundException::new);
+
         List<AdminAccountDTO> accounts = new ArrayList<>();
         List<Account> allAccounts = accountRepository.findAll();
         if (allAccounts.isEmpty()) {

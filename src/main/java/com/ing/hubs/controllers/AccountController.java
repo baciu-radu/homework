@@ -62,7 +62,7 @@ public class AccountController {
 
     }
 
-    @GetMapping("/allAccounts")
+    @GetMapping("/all")
     public ResponseEntity<String> showAllAccounts(HttpServletRequest request) throws UserNotFoundException, AccountNotFoundException {
         List<AdminAccountDTO> accountList;
         accountList = accountService.getAllAccounts(request);
